@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Footer from "../components/footer.js";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
         <button className="button1">Cliquez-ici</button>
         <button className="button2">Ici aussi</button>
       </main>
-      <Footer />
     </div>
   );
 }
