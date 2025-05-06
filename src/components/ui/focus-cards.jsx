@@ -36,24 +36,37 @@ export const Card = React.memo(({ card, index, hovered, setHovered }) => (
   </div>
 ));
 
-
 Card.displayName = "Card";
 
-export function FocusCards({
-  cards
-}) {
+import { useEffect } from "react";
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768); // < md
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return isMobile;
+}
+
+export function FocusCards({ cards }) {
   const [hovered, setHovered] = useState(null);
+  const isMobile = useIsMobile();
 
   return (
-    <div
-      className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
       {cards.map((card, index) => (
         <Card
           key={card.title}
           card={card}
           index={index}
-          hovered={hovered}
-          setHovered={setHovered} />
+          hovered={isMobile ? null : hovered} // désactive le flou sur mobile
+          setHovered={setHovered}
+        />
       ))}
     </div>
   );
