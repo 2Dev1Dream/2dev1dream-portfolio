@@ -1,71 +1,81 @@
-"use client";;
+"use client"; // Indique que ce composant est un composant client (React côté client)
 import React, { useState } from "react";
-import { cn } from "../../lib/utils.js";
+import { cn } from "../../lib/utils.js"; // Fonction utilitaire pour concaténer des classes conditionnellement
 
+// Composant pour afficher une carte individuelle
 export const Card = React.memo(({ card, index, hovered, setHovered }) => (
   <div
-    onMouseEnter={() => setHovered(index)}
-    onMouseLeave={() => setHovered(null)}
+    // Gestion des événements de survol pour appliquer des effets visuels
+    onMouseEnter={() => setHovered(index)} // Définit l'index de la carte survolée
+    onMouseLeave={() => setHovered(null)} // Réinitialise l'état lorsqu'on quitte la carte
     className={cn(
-      "rounded-2xl relative bg-white dark:bg-neutral-900 overflow-hidden shadow-lg transition-all duration-300 ease-out p-4 flex flex-col justify-between",
-      hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
+      "rounded-2xl relative bg-white dark:bg-neutral-900 overflow-hidden shadow-lg transition-all duration-300 ease-out p-4 flex flex-col justify-between", // Classes de base pour le style
+      hovered !== null && hovered !== index && "blur-sm scale-[0.98]" // Applique un flou et un effet de réduction si une autre carte est survolée
     )}
   >
+    {/* Image de la carte */}
     <img
-      src={card.image}
-      alt={card.title}
-      className="rounded-lg w-full h-48 object-cover mb-4"
+      src={card.image} // Source de l'image
+      alt={card.title} // Texte alternatif pour l'image
+      className="rounded-lg w-full h-48 object-cover mb-4" // Style de l'image
     />
+    {/* Titre de la carte */}
     <h2 className="text-xl font-semibold text-[#427AA1] mb-2">
       <a href={card.github} target="_blank" rel="noopener noreferrer" className="link">
-        {card.title}
+        {card.title} {/* Lien vers le dépôt GitHub du projet */}
       </a>
     </h2>
+    {/* Description du projet */}
     <p className="text-sm text-gray-700 mb-4">{card.description}</p>
+    {/* Liste des technologies utilisées */}
     <div className="mb-4">
       <p className="text-sm font-semibold text-[#427AA1] mb-1">Langages :</p>
       <ul className="flex flex-wrap gap-2">
         {card.stack.map((tech, i) => (
           <li key={i} className="bg-[#A4BD01] text-white text-xs px-3 py-1 rounded-full">
-            {tech}
+            {tech} {/* Affiche chaque technologie */}
           </li>
         ))}
       </ul>
     </div>
+    {/* Ce qui a été appris grâce au projet */}
     <p className="text-sm text-gray-600 italic">{card.learned}</p>
   </div>
 ));
 
-Card.displayName = "Card";
+Card.displayName = "Card"; // Définit un nom d'affichage pour le composant (utile pour le débogage)
 
 import { useEffect } from "react";
 
+// Hook personnalisé pour détecter si l'utilisateur est sur un écran mobile
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // État pour savoir si l'écran est mobile
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768); // < md
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const check = () => setIsMobile(window.innerWidth < 768); // Vérifie si la largeur de l'écran est inférieure à 768px
+    check(); // Vérifie immédiatement au chargement
+    window.addEventListener("resize", check); // Ajoute un écouteur pour détecter les changements de taille d'écran
+    return () => window.removeEventListener("resize", check); // Nettoie l'écouteur lors du démontage
   }, []);
 
-  return isMobile;
+  return isMobile; // Retourne true si l'écran est mobile
 }
 
+// Composant principal pour afficher les cartes
 export function FocusCards({ cards }) {
-  const [hovered, setHovered] = useState(null);
-  const isMobile = useIsMobile();
+  const [hovered, setHovered] = useState(null); // État pour suivre la carte actuellement survolée
+  const isMobile = useIsMobile(); // Utilise le hook pour détecter si l'écran est mobile
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
+      {/* Affiche chaque carte */}
       {cards.map((card, index) => (
         <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={isMobile ? null : hovered} // désactive le flou sur mobile
-          setHovered={setHovered}
+          key={card.title} // Clé unique pour chaque carte
+          card={card} // Données de la carte
+          index={index} // Index de la carte
+          hovered={isMobile ? null : hovered} // Désactive le flou sur mobile
+          setHovered={setHovered} // Fonction pour mettre à jour l'état de survol
         />
       ))}
     </div>
