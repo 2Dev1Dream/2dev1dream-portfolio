@@ -6,7 +6,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 text-center">
         {/* Logo */}
         <div className="mb-4 flex justify-center">
-          <img src="/Logo_1.png" alt="2dev1dream" className="w-6 h-6 sm:w-12 sm:h-12"/>
+          <a href="/" target="_blank" rel="noopener noreferrer" aria-label="Acceuil">
+            <img src="/Logo_1.png" alt="2dev1dream" className="w-6 h-6 sm:w-12 sm:h-12 hover:scale-110 transition-transform"/>
+          </a>
         </div>
 
         {/* Réseaux sociaux */}
@@ -16,7 +18,7 @@ const Footer = () => {
             <FaSquareInstagram className="w-4 h-4 sm:w-8 sm:h-8 accent-blue hover:scale-110 transition-transform text-black dark:text-white" />
           </a>
           {/* ComeUp */}
-          <a href="https://comeup.com/votre_profil" target="_blank" rel="noopener noreferrer" aria-label="ComeUp">
+          <a href="https://comeup.com/fr/@2dev1dream" target="_blank" rel="noopener noreferrer" aria-label="ComeUp">
             <img src="/comeup_bleu.svg" alt="ComeUp" className="w-4 h-4 sm:w-8 sm:h-8 hover:scale-110 transition-transform"/>
           </a>
         </div>
