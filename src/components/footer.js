@@ -1,4 +1,5 @@
 import { FaSquareInstagram } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -13,13 +14,17 @@ const Footer = () => {
 
         {/* Réseaux sociaux */}
         <div className="flex justify-center gap-6 mb-4 flex-wrap">
+          {/* ComeUp */}
+          <a href="https://comeup.com/fr/@2dev1dream" target="_blank" rel="noopener noreferrer" aria-label="ComeUp">
+            <img src="/comeup_bleu.svg" alt="ComeUp" className="w-4 h-4 sm:w-8 sm:h-8 hover:scale-110 transition-transform"/>
+          </a>
           {/* Instagram */}
           <a href="https://www.instagram.com/2dev1dream/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <FaSquareInstagram className="w-4 h-4 sm:w-8 sm:h-8 accent-blue hover:scale-110 transition-transform text-black dark:text-white" />
           </a>
-          {/* ComeUp */}
-          <a href="https://comeup.com/fr/@2dev1dream" target="_blank" rel="noopener noreferrer" aria-label="ComeUp">
-            <img src="/comeup_bleu.svg" alt="ComeUp" className="w-4 h-4 sm:w-8 sm:h-8 hover:scale-110 transition-transform"/>
+          {/* Tiktok */}
+          <a href="https://www.tiktok.com/@2dev1dream" target="_blank" rel="noopener noreferrer" aria-label="Tiktok">
+            <FaTiktok className="w-4 h-4 sm:w-8 sm:h-8 accent-blue hover:scale-110 transition-transform text-black dark:text-white" />
           </a>
         </div>
 
