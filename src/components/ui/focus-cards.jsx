@@ -9,15 +9,15 @@ export const Card = React.memo(({ card, index, hovered, setHovered }) => (
     onMouseEnter={() => setHovered(index)} // Définit l'index de la carte survolée
     onMouseLeave={() => setHovered(null)} // Réinitialise l'état lorsqu'on quitte la carte
     className={cn(
-      "rounded-2xl relative bg-white dark:bg-neutral-900 overflow-hidden shadow-lg transition-all duration-300 ease-out p-4 flex flex-col justify-between", // Classes de base pour le style
-      hovered !== null && hovered !== index && "blur-sm scale-[0.98]" // Applique un flou et un effet de réduction si une autre carte est survolée
+      "w-[235px] sm:w-[250px] md:w-[275px] lg:w-[300px] rounded-2xl relative bg-[#EBF2FA] dark:bg-neutral-900 overflow-hidden shadow-lg transition-all duration-300 ease-out p-4 flex flex-wrap justify-center gap-1", // Classes de base pour le style
+      hovered !== null && hovered !== index && "blur-sm scale-[0.98]", // Applique un flou et un effet de réduction si une autre carte est survolée 
     )}
   >
     {/* Image de la carte */}
     <img
       src={card.image} // Source de l'image
       alt={card.title} // Texte alternatif pour l'image
-      className="rounded-lg w-full h-48 object-cover mb-4" // Style de l'image
+      className="rounded-lg w-full aspect-video object-cover mb-4" // Style de l'image
     />
     {/* Titre de la carte */}
     <h2 className="text-xl font-semibold text-[#427AA1] mb-2">
@@ -26,11 +26,11 @@ export const Card = React.memo(({ card, index, hovered, setHovered }) => (
       </a>
     </h2>
     {/* Description du projet */}
-    <p className="text-sm text-gray-700 mb-4">{card.description}</p>
+    <p className="text-center text-sm text-gray-700 mb-4">{card.description}</p>
     {/* Liste des technologies utilisées */}
     <div className="mb-4">
-      <p className="text-sm font-semibold text-[#427AA1] mb-1">Langages :</p>
-      <ul className="flex flex-wrap gap-2">
+      <p className="text-center text-sm font-semibold text-[#427AA1] mb-1">Langages :</p>
+      <ul className="flex flex-wrap gap-2 justify-center">
         {card.stack.map((tech, i) => (
           <li key={i} className="bg-[#A4BD01] text-white text-xs px-3 py-1 rounded-full">
             {tech} {/* Affiche chaque technologie */}
@@ -39,7 +39,7 @@ export const Card = React.memo(({ card, index, hovered, setHovered }) => (
       </ul>
     </div>
     {/* Ce qui a été appris grâce au projet */}
-    <p className="text-sm text-gray-600 italic">{card.learned}</p>
+    <p className="text-center text-sm text-gray-600 italic">{card.learned}</p>
   </div>
 ));
 
@@ -52,7 +52,7 @@ function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false); // État pour savoir si l'écran est mobile
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768); // Vérifie si la largeur de l'écran est inférieure à 768px
+    const check = () => setIsMobile(window.innerWidth < 1024); // Vérifie si la largeur de l'écran est inférieure à 1024px
     check(); // Vérifie immédiatement au chargement
     window.addEventListener("resize", check); // Ajoute un écouteur pour détecter les changements de taille d'écran
     return () => window.removeEventListener("resize", check); // Nettoie l'écouteur lors du démontage
@@ -67,7 +67,7 @@ export function FocusCards({ cards }) {
   const isMobile = useIsMobile(); // Utilise le hook pour détecter si l'écran est mobile
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto md:px-8 w-full">
+    <div className="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto px-4">
       {/* Affiche chaque carte */}
       {cards.map((card, index) => (
         <Card
