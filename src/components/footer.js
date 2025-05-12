@@ -2,7 +2,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-4 md:py-8 mt-16 border-t border-gray-200">
+    <footer className="w-full py-4 md:py-8 mt-16 border-t border-gray-200 bg-[#EBF2FA]">
       <div className="container mx-auto px-4 text-center">
         {/* Logo */}
         <div className="mb-4 flex justify-center">
