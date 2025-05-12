@@ -51,12 +51,12 @@ export default function HeroSection() {
       </p>
 
       <div className="flex flex-wrap justify-center gap-4 mt-4">
-        <a href="#">
+        <a href="/projects">
           <button className="button1 rounded-3xl px-6 py-2 text-sm sm:text-base">
             Voir nos projets
           </button>
         </a>
-        <a href="#">
+        <a href="https://comeup.com/fr/@2dev1dream" target="_blank" rel="noopener noreferrer">
           <button className="button2 rounded-3xl px-6 py-2 text-sm sm:text-base">
             Nous contacter
           </button>

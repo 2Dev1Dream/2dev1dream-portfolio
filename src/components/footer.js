@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 text-center">
         {/* Logo */}
         <div className="mb-4 flex justify-center">
-          <a href="/" target="_blank" rel="noopener noreferrer" aria-label="Acceuil">
-            <img src="/Logo_1.png" alt="2dev1dream" className="w-6 h-6 sm:w-12 sm:h-12 hover:scale-110 transition-transform"/>
+          <a href="/" rel="noopener noreferrer" aria-label="Acceuil">
+            <img src="/Logo_1.png" alt="2dev1dream" className="w-6 h-10 sm:w-12 sm:h-16 hover:scale-110 transition-transform"/>
           </a>
         </div>
 

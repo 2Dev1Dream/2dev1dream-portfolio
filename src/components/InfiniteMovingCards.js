@@ -30,7 +30,7 @@ export function InfiniteMovingCardsDemo() {
           />
         ))}
         direction="right"
-        speed="slow"
+        speed="fast"
       />
     </div>
   );

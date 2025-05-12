@@ -14,9 +14,9 @@ import { useState, useEffect } from "react";
 
 export default function NavbarDemo() {
   const navItems = [
-    { name: "Qui sommes nous?", link: "#about" },
-    { name: "Nos projets", link: "#projects" },
-    { name: "ComeUp", link: "#contact" },
+    { name: "Qui sommes nous?", link: "/about" },
+    { name: "Nos projets", link: "/projects" },
+    { name: "ComeUp", link: "https://comeup.com/fr/@2dev1dream", external: true },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,9 +38,6 @@ export default function NavbarDemo() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="primary">Nous contacter</NavbarButton>
-          </div>
         </NavBody>
 
         <MobileNav>
