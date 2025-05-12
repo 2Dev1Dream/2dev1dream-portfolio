@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import NavbarDemo from "@/components/Navbar";
+import Footer from "../components/footer.js"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "2Dev1Dream Portfolio",
-  description: "Portfolio de Maël et James",
+  title: "2Dev1Dream",
+  description: "Portfolio et projets de 2Dev1Dream",
 };
 
 export default function RootLayout({ children }) {
@@ -28,6 +29,10 @@ export default function RootLayout({ children }) {
         
         {/* Page Content */}
         <main>{children}</main>
+        
+        <div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
