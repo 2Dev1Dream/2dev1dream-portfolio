@@ -56,7 +56,7 @@ export default function HeroSection() {
             Voir nos projets
           </button>
         </a>
-        <a href="https://comeup.com/fr/@2dev1dream" target="_blank" rel="noopener noreferrer">
+        <a href="https://comeup.com/fr/service/473851/creer-un-site-a-votre-image-moderne-sur-mesure-et-percutant" target="_blank" rel="noopener noreferrer">
           <button className="button2 rounded-3xl px-6 py-2 text-sm sm:text-base">
             Nous contacter
           </button>

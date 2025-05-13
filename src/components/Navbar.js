@@ -16,7 +16,7 @@ export default function NavbarDemo() {
   const navItems = [
     { name: "Qui sommes nous?", link: "/about" },
     { name: "Nos projets", link: "/projects" },
-    { name: "ComeUp", link: "https://comeup.com/fr/@2dev1dream", external: true },
+    { name: "ComeUp", link: "https://comeup.com/fr/service/473851/creer-un-site-a-votre-image-moderne-sur-mesure-et-percutant", external: true },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
